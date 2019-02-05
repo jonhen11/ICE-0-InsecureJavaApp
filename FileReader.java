@@ -1,6 +1,9 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+// Bailey Miller
+// File reading application that when passed the file name through the args will access the first file
+// With 3 major problems that need fixed
+// 2-5-2019 (4:30 PM)
+
+import java.io.*;
 
 public class FileReader
 {
@@ -16,6 +19,7 @@ public class FileReader
 		}
     }
     
+	// 1
     // https://wiki.sei.cmu.edu/confluence/display/java/FIO16-J.+Canonicalize+path+names+before+validating+them
     // FIO16-J. Canonicalize path names before validating them
     private static String GetFilePath(String[] args)
@@ -24,6 +28,7 @@ public class FileReader
         return file.getPath();
     }
     
+    // 2
     // https://wiki.sei.cmu.edu/confluence/display/java/FIO02-J.+Detect+and+handle+file-related+errors
     // FIO02-J. Detect and handle file-related errors (Exceptions)
     private static String GetContents(File f) throws FileNotFoundException, IOException
