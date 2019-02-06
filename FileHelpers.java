@@ -12,14 +12,17 @@ public class FileHelpers {
 	// FIO04-J. Release resources when they are no longer needed
 	public static String ReadFileContents(File f) throws IOException, FileNotFoundException
 	{
-		FileInputStream stream = new FileInputStream(f.getPath());
+	try(FileInputStream stream = new FileInputStream(f.getPath())
 		  BufferedReader bufRead =
-		      new BufferedReader(new InputStreamReader(stream));
+		      new BufferedReader(new InputStreamReader(stream))){
 		  StringBuilder builder = new StringBuilder();
 		  String line;
 		  while ((line = bufRead.readLine()) != null) {
 		    builder.append(line);
 		  }
+	
+	} catch (IOException e) {
+	  System.out.println("Could not release recourses.")
 		  
 		  return builder.toString();
 	}
